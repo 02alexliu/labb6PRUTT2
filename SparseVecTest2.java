@@ -7,13 +7,13 @@ public class SparseVecTest2 {
     public void testEmpty() {
         SparseVec<Integer> sparseVec = new glesVektor2<>();
 
-        // Testa size, maxIndex och minIndex
-        assertEquals(0, sparseVec.size());
+        // Testa OURsize, maxIndex och minIndex
+        assertEquals(0, sparseVec.OURsize());
         assertEquals(-1, sparseVec.maxIndex());
         assertEquals(-1, sparseVec.minIndex());
 
-        // Testa get()
-        assertNull(sparseVec.get(0));
+        // Testa OURget()
+        assertNull(sparseVec.OURget(0));
 
         // Testa toArray och sortedValues på den
         assertTrue(sparseVec.toArray().length == 0);
@@ -25,13 +25,13 @@ public class SparseVecTest2 {
     public void testIndex(){
         SparseVec<Integer> sparseVec = new glesVektor2<>();
 
-        // Testa lägg in värden och kolla size
+        // Testa lägg in värden och kolla OURsize
         sparseVec.add(0, 5);
-        assertEquals(1, sparseVec.size());
+        assertEquals(1, sparseVec.OURsize());
         sparseVec.add(4, 10);
-        assertEquals(2, sparseVec.size());
+        assertEquals(2, sparseVec.OURsize());
         sparseVec.add(4, 9);        // Ska override värdet vid index 1.
-        assertEquals(2, sparseVec.size());
+        assertEquals(2, sparseVec.OURsize());
 
         // Testa min/maxindex
         assertEquals(0, sparseVec.minIndex());
@@ -40,19 +40,19 @@ public class SparseVecTest2 {
         // Testa ospesificerade positioner
         SparseVec<Integer> sparseVec2 = new glesVektor2<>();
 
-        // Testa lägg in värden och kolla size
+        // Testa lägg in värden och kolla OURsize
         sparseVec2.add(100);
-        assertEquals(1, sparseVec2.size());
+        assertEquals(1, sparseVec2.OURsize());
         sparseVec2.add(200);
-        assertEquals(2, sparseVec2.size());
+        assertEquals(2, sparseVec2.OURsize());
         sparseVec2.add(300);
-        assertEquals(3, sparseVec2.size());
+        assertEquals(3, sparseVec2.OURsize());
 
-        // Testa get()
-        assertEquals(100, (int) sparseVec2.get(0));
-        assertEquals(200, (int) sparseVec2.get(1));
-        assertEquals(300, (int) sparseVec2.get(2));
-        assertNull(sparseVec2.get(100));
+        // Testa OURget()
+        assertEquals(100, (int) sparseVec2.OURget(0));
+        assertEquals(200, (int) sparseVec2.OURget(1));
+        assertEquals(300, (int) sparseVec2.OURget(2));
+        assertNull(sparseVec2.OURget(100));
     }
 
     @Test
@@ -62,17 +62,17 @@ public class SparseVecTest2 {
         sparseVec.add(0, 10);
         sparseVec.add(5, 50);
         sparseVec.add(10, 50);
-        assertEquals(3, sparseVec.size());
+        assertEquals(3, sparseVec.OURsize());
 
-        // Använd removeAt och testa ny size och get()
+        // Använd removeAt och testa ny OURsize och OURget()
         sparseVec.removeAt(0);
-        assertEquals(2, sparseVec.size());
-        assertNull(sparseVec.get(0));
+        assertEquals(2, sparseVec.OURsize());
+        assertNull(sparseVec.OURget(0));
 
-        // Använd removeElem och testa ny size och get()
+        // Använd removeElem och testa ny OURsize och OURget()
         sparseVec.removeElem(50);    // Ska ta bort 50 vid index 5.
-        assertEquals(1, sparseVec.size());
-        assertNull(sparseVec.get(5));
-        assertEquals(50, (int) sparseVec.get(10));
+        assertEquals(1, sparseVec.OURsize());
+        assertNull(sparseVec.OURget(5));
+        assertEquals(50, (int) sparseVec.OURget(10));
     }
 }
