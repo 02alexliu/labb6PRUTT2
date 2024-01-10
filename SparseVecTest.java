@@ -57,22 +57,22 @@ public class SparseVecTest {
 
     @Test
     public void testRemove(){
-    SparseVec<Integer> sparseVec = new glesVektor<>();
-    // lägg till tre värden
-    sparseVec.add(0, 10);
-    sparseVec.add(5, 50);
-    sparseVec.add(10, 50);
-    assertEquals(3, sparseVec.size());
+        SparseVec<Integer> sparseVec = new glesVektor<>();
+        // lägg till tre värden
+        sparseVec.add(0, 10);
+        sparseVec.add(5, 50);
+        sparseVec.add(10, 50);
+        assertEquals(3, sparseVec.size());
 
-    // Använd removeAt och testa ny size och get()
-    sparseVec.removeAt(0);
-    assertEquals(2, sparseVec.size());
-    assertNull(sparseVec.get(0));
+        // Använd removeAt och testa ny size och get()
+        sparseVec.removeAt(0);
+        assertEquals(2, sparseVec.size());
+        assertNull(sparseVec.get(0));
 
-    // Använd removeElem och testa ny size och get()
-    sparseVec.removeElem(50);    // Ska ta bort 50 vid index 5.
-    assertEquals(1, sparseVec.size());
-    assertNull(sparseVec.get(5));
-    assertEquals(50, (int) sparseVec.get(10));
+        // Använd removeElem och testa ny size och get()
+        sparseVec.removeElem(50);    // Ska ta bort 50 vid index 5.
+        assertEquals(1, sparseVec.size());
+        assertNull(sparseVec.get(5));
+        assertEquals(50, (int) sparseVec.get(10));
     }
 }

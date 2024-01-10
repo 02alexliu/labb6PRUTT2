@@ -71,6 +71,7 @@ public class glesVektor <E extends Comparable<E>> implements SparseVec<E>{
         for (Map.Entry<Integer, E> entry : Ourmap.entrySet()){
             if(elem == entry.getValue()){  
                 Ourmap.remove(entry.getKey());
+                return;
             }
         }
     };    // remove first occurence (lowest index) of elem                                        
